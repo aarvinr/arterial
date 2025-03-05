@@ -1,13 +1,25 @@
 {
 	"devDependencies": {
-		"prettier": "3.5.3"
+		"@rescript/core": "^1.6.1",
+		"prettier": "3.5.3",
+		"rescript": "^11.1.4"
 	},
 	"engines": {
 		"node": ">=22",
 		"pnpm": ">=10"
 	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"rescript"
+		]
+	},
 	"prettier": {
 		"endOfLine": "crlf",
 		"useTabs": true
-	}
+	},
+	"scripts": {
+		"format": "prettier --write . && rescript format -all",
+		"build": "rescript build -warn-error +a"
+	},
+	"type": "module"
 }
