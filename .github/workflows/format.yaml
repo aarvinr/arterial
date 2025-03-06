@@ -15,4 +15,4 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
           node-version-file: package.json
-      - run: pnpm run format
+      - run: pnpm exec prettier . --check && pnpm exec rescript format -check -all
