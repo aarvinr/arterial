@@ -1,14 +1,34 @@
 {
 	"devDependencies": {
-		"prettier": "3.5.3"
+		"prettier": "3.5.3",
+		"unbuild": "^3.5.0"
 	},
 	"engines": {
 		"node": ">=22",
 		"pnpm": ">=10"
 	},
+	"exports": {
+		"./jsx-runtime": {
+			"import": "./dist/jsx-runtime.mjs",
+			"require": "./dist/jsx-runtime.cjs",
+			"types": "./dist/jsx-runtime.d.ts"
+		}
+	},
+	"files": [
+		"dist"
+	],
 	"packageManager": "pnpm@10.6.2",
 	"prettier": {
 		"endOfLine": "crlf",
 		"useTabs": true
+	},
+	"scripts": {
+		"build": "unbuild"
+	},
+	"type": "module",
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild"
+		]
 	}
 }
